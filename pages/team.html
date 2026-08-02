@@ -3,89 +3,199 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Recluse • Developer Team</title>
+    <meta name="description" content="Meet the developers behind Recluse Discord Bot.">
+
     <link rel="icon" href="../assets/favicon.png">
-    <title>Recluse</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid container">
-            <a class="navbar-brand" href="/">
-                <img src="../assets/bot.png" alt="" width="50" height="50" class="rounded-circle"> &nbsp;
-                <span>Recluse</span>
+<body class="bg-dark text-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-secondary sticky-top"
+        style="backdrop-filter:blur(15px); background:rgba(20,20,25,.9);">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="../index.html">
+                <img src="../assets/bot.png"
+                    width="46"
+                    height="46"
+                    class="rounded-circle me-2"
+                    alt="Recluse Logo">
+
+                Recluse
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+
+            <button class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav me-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./commands.html">Commands</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#/">Staff</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="linksdrop" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Links
+                        <a class="nav-link" href="../index.html">
+                            <i class="fa-solid fa-house"></i>
+                            Home
                         </a>
-                        <ul class="dropdown-menu bgn" aria-labelledby="linksdrop">
-                            <li><a class="dropdown-item text-muted font-weight-bold" href="https://discord.gg/gU7XAxTpX5" target="_blank">Invite
-                                    Bot</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./commands.html">
+                            <i class="fa-solid fa-terminal"></i>
+                            Commands
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fa-solid fa-users"></i>
+                            Team
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                            href="#"
+                            data-bs-toggle="dropdown">
+
+                            <i class="fa-solid fa-link"></i>
+                            Links
+
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-dark">
+
+                            <li>
+                                <a class="dropdown-item"
+                                    target="_blank"
+                                    href="https://discord.gg/gU7XAxTpX5">
+
+                                    Invite Bot
+
+                                </a>
                             </li>
-                            <li><a class="dropdown-item text-muted font-weight-bold" href="https://discord.gg/gU7XAxTpX5" target="_blank">Support
-                                    Server</a></li>
-                          
+
+                            <li>
+                                <a class="dropdown-item"
+                                    target="_blank"
+                                    href="https://discord.gg/gU7XAxTpX5">
+
+                                    Support Server
+
+                                </a>
+                            </li>
+
                         </ul>
+
                     </li>
+
                 </ul>
-                <div class="d-flex ml-auto" id="headerlogin">
-                    <li class="nav-item" style="list-style: none;">
-                        <a class="nav-link btn btn-outline-secondary login" href="https://discord.com/api/oauth2/authorize?client_id=804299863277174805&redirect_uri=https%3A%2F%2FDiscord-Bot-Website.gamingdiwas.repl.co&response_type=code&scope=identify%20email%20guilds.join%20guilds">Login</a>
-                    </li>
-                </div>
+
+                <a class="btn btn-primary rounded-pill px-4"
+                    href="https://discord.com/api/oauth2/authorize?client_id=804299863277174805&scope=identify%20guilds%20email">
+
+                    <i class="fab fa-discord"></i>
+                    Login
+
+                </a>
+
             </div>
+
         </div>
+
     </nav>
 
-    <div class="container text-center">
-        <h3 style="color: #ffffff; margin: 20px">Developer Team</h3>
-        <hr style="border: 1px solid #ffffff">
-        <div class="row equal d-flex justify-content-center" style="margin: 20px" id="owners_list">
-        </div>
-    </div>
+    <!-- Hero -->
 
-    <footer class="mastfoot mb-auto">
-        <div class="container-fluid mb-auto">
-            <div class="row d-flex justify-content-center">
-                <div class="">
-                    <p style="font-size: 19px; padding: 0px; margin: 0px;"><a href=""
-                            style="text-decoration: none; color: white;"></a></br>Copyright ©
-                        2021. All
-                        rights reserved.</br>
-                </div>
-            </div>
+    <section class="py-5">
+
+        <div class="container text-center">
+
+            <h1 class="display-4 fw-bold mb-3">
+
+                Meet Our Team
+
+            </h1>
+
+            <p class="lead text-secondary">
+
+                The developers and contributors building the Recluse Discord Bot.
+
+            </p>
+
         </div>
+
+    </section>
+
+    <!-- Team -->
+
+    <section class="pb-5">
+
+        <div class="container">
+
+            <div
+                id="owners_list"
+                class="row g-4 justify-content-center">
+
+                <!-- team.js inserts cards here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="border-top border-secondary py-4">
+
+        <div class="container text-center text-secondary">
+
+            <img src="../assets/bot.png"
+                width="40"
+                class="rounded-circle mb-3"
+                alt="Logo">
+
+            <p class="mb-1">
+
+                © 2026 Recluse. All rights reserved.
+
+            </p>
+
+            <small>
+
+                Built with ❤️ for the Discord community.
+
+            </small>
+
+        </div>
+
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Team Loader -->
     <script src="../js/team.js"></script>
-  
+
 </body>
 
 </html>
