@@ -1,35 +1,89 @@
 /*
-THIS CODE BY LWJerri#3290
+    Updated Owner Cards
+    Modernized & Improved
 */
+
 const boxOwners = document.getElementById("owners_list");
-/*
-you can use this api but if you need to create custome api check:
- https://github.com/Hadi-Koubeissi/discord-web-api
-*/
+
 const API = "https://discord-web-api.glitch.me/discord/user/";
 
 const owners = [
     {
-        "id": "519666024220721152",
-        "post": "Owner of Bot",
-        "GHURL": "https://github.com/diwasatreya",
-        "InstaURL": "",
-        "YTURL": "https://www.youtube.com/c/Kp18Gamer"
+        id: "519666024220721152",
+        post: "Owner of Bot",
+        github: "https://github.com/diwasatreya",
+        youtube: "https://www.youtube.com/c/Kp18Gamer",
+        instagram: "",
+        twitter: "",
+        website: ""
     }
-]
+];
 
-for (let indexOne = 0; indexOne < owners.length; indexOne++) {
-    const elementOwners = owners[indexOne];
+async function loadOwners() {
+    boxOwners.innerHTML = "";
 
-    $.getJSON(API + elementOwners.id)
-        .then(output => {
-            if (!output.username || !output.url) {
-                setTimeout(function () {
-                    document.querySelectorAll(".banner img").forEach(imgs => imgs.src = url + "../assets/bot.png");
-                }, 1000);
-            }
+    for (const owner of owners) {
+        try {
+            const response = await fetch(`${API}${owner.id}`);
+            const user = await response.json();
 
-            const ownerList = "<div id='trigger' class='card' style='margin: 15px;'><div class='banner'><img src='" + output.url + "'></div></br></br></br></br><h2 class='name'>" + output.username + "</h2><div class='title'><h1 id='trigger2' style='font-size: 26px; color: #000000;'>" + elementOwners.post + "</h2></div><div class='actions'><div class='follow-btn' style='margin-bottom: 5px;'><a href='" + elementOwners.GHURL + "' target='_blank'><button style='color: #000000;'>GitHub</button></a></div><div class='follow-btn'><a href='" + elementOwners.YTURL + "' target='_blank'><button style='color: #000000;'>YouTube</button></a></div></div></div>"
-            boxOwners.innerHTML += ownerList;
-        });
+            const avatar =
+                user.url ||
+                "https://cdn.discordapp.com/embed/avatars/0.png";
+
+            const username =
+                user.username || "Unknown User";
+
+            const card = document.createElement("div");
+            card.className = "card owner-card";
+            card.style.margin = "15px";
+
+            card.innerHTML = `
+                <div class="banner">
+                    <img
+                        src="${avatar}"
+                        alt="${username}"
+                        loading="lazy"
+                    >
+                </div>
+
+                <h2 class="name">${username}</h2>
+                <h3 class="title">${owner.post}</h3>
+
+                <div class="actions">
+                    ${owner.github ? `
+                    <a href="${owner.github}" target="_blank" rel="noopener">
+                        <button>GitHub</button>
+                    </a>` : ""}
+
+                    ${owner.youtube ? `
+                    <a href="${owner.youtube}" target="_blank" rel="noopener">
+                        <button>YouTube</button>
+                    </a>` : ""}
+
+                    ${owner.instagram ? `
+                    <a href="${owner.instagram}" target="_blank" rel="noopener">
+                        <button>Instagram</button>
+                    </a>` : ""}
+
+                    ${owner.twitter ? `
+                    <a href="${owner.twitter}" target="_blank" rel="noopener">
+                        <button>X</button>
+                    </a>` : ""}
+
+                    ${owner.website ? `
+                    <a href="${owner.website}" target="_blank" rel="noopener">
+                        <button>Website</button>
+                    </a>` : ""}
+                </div>
+            `;
+
+            boxOwners.appendChild(card);
+
+        } catch (err) {
+            console.error(`Failed to load owner ${owner.id}`, err);
+        }
+    }
 }
+
+loadOwners();
